@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Apos.Content.Compile;
 
-namespace Pipeline {
+namespace PipelineProject {
     public class Pipeline {
         public Pipeline(string inputPath, string outputPath) {
             _inputPath = inputPath;

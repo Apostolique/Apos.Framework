@@ -1,7 +1,7 @@
 ﻿using System;
 using CommandLine;
 
-namespace Pipeline {
+namespace PipelineProject {
     class Program {
         static void Main(string[] args) {
             Parser.Default.ParseArguments<Options>(args).WithParsed<Options>(o => {

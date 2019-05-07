@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core {
+namespace GameProject {
     public static class Program {
         [STAThread]
         static void Main() {
