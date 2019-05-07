@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Apos.Content.Compile;
-using static Apos.Content.Compile.Target;
 
 namespace Pipeline {
     public class Pipeline {
