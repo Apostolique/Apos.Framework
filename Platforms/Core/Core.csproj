@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Content.Builder" Version="3.7.0.4" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.7.0.7" />
+  </ItemGroup>
+
+  <Import Project="..\..\Game\Layer0\Layer0.projitems" Label="Shared" />
+  <Import Project="..\..\Game\Layer1\Layer1.projitems" Label="Shared" />
+
+  <Target Name="Build Content" BeforeTargets="Build">
+    <Exec Condition="'$(Configuration)'=='debug'" Command="dotnet run -p ../Pipeline -- -i ../../Game/Content -o $(OutputPath)Content" />
+    <Exec Condition="'$(Configuration)'=='release'" Command="dotnet run -p ../Pipeline -- -i ../../Game/Content -o $(PublishDir)Content" />
+  </Target>
+
+</Project>
