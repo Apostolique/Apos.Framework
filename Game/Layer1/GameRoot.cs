@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace Core {
-    public class Game1 : Game {
-        public Game1() {
+    public class GameRoot : Game {
+        public GameRoot() {
             _graphics = new GraphicsDeviceManager(this);
             IsMouseVisible = true;
         }
