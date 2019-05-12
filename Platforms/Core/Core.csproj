@@ -14,9 +14,11 @@
   <Import Project="..\..\Game\Layer0\Layer0.projitems" Label="Shared" />
   <Import Project="..\..\Game\Layer1\Layer1.projitems" Label="Shared" />
 
-  <Target Name="Build Content" BeforeTargets="Build">
-    <Exec Condition="'$(Configuration)'=='debug'" Command="dotnet run -p ../Pipeline -- -i ../../Game/Content -o $(OutputPath)Content" />
-    <Exec Condition="'$(Configuration)'=='release'" Command="dotnet run -p ../Pipeline -- -i ../../Game/Content -o $(PublishDir)Content" />
+  <Target Name="Build Content" BeforeTargets="BeforeBuild">
+    <Exec Condition="'$(Configuration)'=='debug'"
+          Command="dotnet run -p ../Pipeline -- -i ../../Game/Content -o $(OutputPath)Content -r $(OutputPath) -l ../../Game/Layer1" />
+    <Exec Condition="'$(Configuration)'=='release'"
+          Command="dotnet run -p ../Pipeline -- -i ../../Game/Content -o $(PublishDir)Content -r $(PublishDir) -l ../../Game/Layer1" />
   </Target>
 
 </Project>

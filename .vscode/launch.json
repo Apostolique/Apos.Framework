@@ -24,7 +24,7 @@
             "preLaunchTask": "buildPipeline",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/Platforms/Pipeline/bin/Debug/netcoreapp2.0/Pipeline.dll",
-            "args": ["-i", "Game/Content", "-o", "Platforms/Pipeline/bin/Content"],
+            "args": ["-i", "Game/Content", "-o", "Platforms/Pipeline/bin/Content", "-r", "Platforms/Pipeline/bin", "-l", "Game/Layer1"],
             "cwd": "${workspaceFolder}",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
             "console": "internalConsole",

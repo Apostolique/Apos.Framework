@@ -5,10 +5,7 @@ namespace PipelineProject {
     class Program {
         static void Main(string[] args) {
             Parser.Default.ParseArguments<Options>(args).WithParsed<Options>(o => {
-                Console.WriteLine("Input path: " + o.Input);
-                Console.WriteLine("Output path: " + o.Output);
-
-                Pipeline p = new Pipeline(o.Input, o.Output);
+                Pipeline p = new Pipeline(o.Input, o.Output, o.Root, o.Layer);
             });
         }
 
@@ -20,6 +17,16 @@ namespace PipelineProject {
             }
             [Option('o', "output", Required = true, HelpText = "Sets content output path.")]
             public string Output {
+                get;
+                set;
+            }
+            [Option('r', "root", Required = true, HelpText = "Sets content output root.")]
+            public string Root {
+                get;
+                set;
+            }
+            [Option('l', "layer", Required = true, HelpText = "Sets layer1 path.")]
+            public string Layer {
                 get;
                 set;
             }
