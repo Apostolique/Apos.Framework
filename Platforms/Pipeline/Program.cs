@@ -5,7 +5,7 @@ namespace PipelineProject {
     class Program {
         static void Main(string[] args) {
             Parser.Default.ParseArguments<Options>(args).WithParsed<Options>(o => {
-                Pipeline p = new Pipeline(o.Input, o.Output, o.Root, o.Layer);
+                Pipeline p = new Pipeline(o.Input, o.Root, o.Output, o.Layer);
             });
         }
 
@@ -15,13 +15,13 @@ namespace PipelineProject {
                 get;
                 set;
             }
-            [Option('o', "output", Required = true, HelpText = "Sets content output path.")]
-            public string Output {
+            [Option('r', "root", Required = true, HelpText = "Sets content output root.")]
+            public string Root {
                 get;
                 set;
             }
-            [Option('r', "root", Required = true, HelpText = "Sets content output root.")]
-            public string Root {
+            [Option('o', "output", Required = true, HelpText = "Sets content output folder.")]
+            public string Output {
                 get;
                 set;
             }

@@ -6,10 +6,10 @@ using Apos.Content.Compile;
 
 namespace PipelineProject {
     public class Pipeline {
-        public Pipeline(string inputPath, string outputPath, string outputRoot, string layer1) {
+        public Pipeline(string inputPath, string outputRoot, string outputFolder, string layer1) {
             _inputPath = fixPath(inputPath);
-            _outputPath = fixPath(outputPath);
             _outputRoot = fixPath(outputRoot);
+            _outputPath = fixPath(Path.Combine(outputRoot, outputFolder));
             _layer1 = fixPath(layer1);
 
             Console.WriteLine("Input path: " + _inputPath);
@@ -51,11 +51,11 @@ namespace PipelineProject {
             get;
             set;
         }
-        private string _outputPath {
+        private string _outputRoot {
             get;
             set;
         }
-        private string _outputRoot {
+        private string _outputPath {
             get;
             set;
         }
