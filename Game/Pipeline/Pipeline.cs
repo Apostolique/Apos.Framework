@@ -26,7 +26,7 @@ namespace PipelineProject {
 
             if (result.Count > 0) {
                 Console.WriteLine("Found content:");
-                List<Tuple<string, string>> links = new List<Tuple<string, string>>();
+                RecurseDirectory links = new RecurseDirectory();
                 foreach (string f in result) {
                     string trimFilePath = trimPathRoot(_inputPath, f);
                     string fileInputPath = createInputPath(_inputPath, trimFilePath);
@@ -35,12 +35,15 @@ namespace PipelineProject {
                     try {
                         compilerPreset[Path.GetExtension(f)].Build(fileInputPath, fileOutputPath);
                         Console.WriteLine("\tCompiled: " + trimFilePath + " to " + fileOutputPath);
-                        links.Add(new Tuple<string, string>(normalizePath(trimFilePath), trimOutputPath));
+                        string left;
+                        string right;
+                        trimOutputPath.ParseDirectory(out left, out right);
+                        links.Add(right, Path.GetFileName(trimFilePath).NormalizePath());
                     } catch (Exception e) {
                         Console.WriteLine("\tFailed:   " + trimFilePath);
                     }
                 }
-                generateClass(links, Path.Combine(_layer1, "Content.cs"));
+                generateClass(links, Path.Combine(_layer1, "AssetLinks.cs"));
                 Console.WriteLine("Done building content.");
             } else {
                 Console.WriteLine("Didn't find any content.");
@@ -94,22 +97,56 @@ namespace PipelineProject {
         private string fixPath(string path) {
             return path.Replace('\\', '/');
         }
-        private string normalizePath(string path) {
-            return path.Replace('\\', '_').Replace('/', '_').Replace('.', '_');
-        }
-        private void generateClass(List<Tuple<string, string>> links, string outputFile) {
+        private void generateClass(RecurseDirectory links, string outputFile) {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("namespace GameProject {");
-            sb.AppendLine("    public static class Content {");
-            foreach (Tuple<string, string> t in links) {
-                sb.AppendLine("        public static string " + t.Item1 + " = \"" + t.Item2 + "\";");
-            }
+            sb.AppendLine("    public static class " + Path.GetFileNameWithoutExtension(outputFile) + " {");
+            links.GenerateClass(sb, "        ", "Assets/");
             sb.AppendLine("    }");
             sb.AppendLine("}");
 
             using (FileStream fs = new FileStream(outputFile, FileMode.Create))
             using (StreamWriter sw = new StreamWriter(fs)){
                 sw.Write(sb.ToString());
+            }
+        }
+        private class RecurseDirectory {
+            public RecurseDirectory() { }
+            public RecurseDirectory(string link, string inputFile) {
+                Add(link, inputFile);
+            }
+
+            public List<Tuple<string, string>> Files {
+                get;
+                set;
+            } = new List<Tuple<string, string>>();
+            public Dictionary<string, RecurseDirectory> Children {
+                get;
+                set;
+            } = new Dictionary<string, RecurseDirectory>();
+
+            public void Add(string link, string inputFile) {
+                string left;
+                string right;
+                link.ParseDirectory(out left, out right);
+                if (string.IsNullOrWhiteSpace(left)) {
+                    Files.Add(new Tuple<string, string>(inputFile, right));
+                } else if (!Children.TryAdd(left, new RecurseDirectory(right, inputFile))) {
+                    Children[left].Add(right, inputFile);
+                }
+            }
+            public void GenerateClass(StringBuilder sb, string indent, string current) {
+                foreach (Tuple<string, string> f in Files) {
+                    sb.AppendLine(indent + "public static string " + f.Item1 + " = \"" + current + f.Item2 + "\";");
+                }
+                if (Files.Count > 0 && Children.Count > 0) {
+                    sb.AppendLine();
+                }
+                foreach (KeyValuePair<string, RecurseDirectory> dir in Children) {
+                    sb.AppendLine(indent + "public static class " + dir.Key + " {");
+                    dir.Value.GenerateClass(sb, indent + "    ", current + dir.Key + "/");
+                    sb.AppendLine(indent + "}");
+                }
             }
         }
 
@@ -134,6 +171,25 @@ namespace PipelineProject {
             public void Build(string inputPath, string outputPath) {
                 Compiler.Build(inputPath, outputPath, Settings);
             }
+        }
+    }
+    public static class Helper {
+        public static void ParseDirectory(this string text, out string left, out string right, string stopAt = "/") {
+            if (!string.IsNullOrWhiteSpace(text)) {
+                int charPosition = text.IndexOf(stopAt, StringComparison.Ordinal);
+
+                if (charPosition > 0) {
+                    left = text.Substring(0, charPosition);
+                    right = text.Substring(charPosition + stopAt.Length, text.Length - charPosition - stopAt.Length);
+                    return;
+                }
+            }
+            left = "";
+            right = text;
+            return;
+        }
+        public static string NormalizePath(this string path) {
+            return path.Replace('\\', '_').Replace('/', '_').Replace('.', '_');
         }
     }
 }

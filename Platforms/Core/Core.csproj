@@ -16,9 +16,9 @@
 
   <Target Name="Build Content" BeforeTargets="BeforeBuild">
     <Exec Condition="'$(Configuration)'=='debug'"
-          Command="dotnet run -p ../Pipeline -- -i ../../Game/Content -r $(OutputPath) -o Content -l ../../Game/Layer1" />
+          Command="dotnet run -p ../Pipeline -- -i ../../Game/Assets -r $(OutputPath) -o Assets -l ../../Game/Layer1" />
     <Exec Condition="'$(Configuration)'=='release'"
-          Command="dotnet run -p ../Pipeline -- -i ../../Game/Content -r $(PublishDir) -o Content -l ../../Game/Layer1" />
+          Command="dotnet run -p ../Pipeline -- -i ../../Game/Assets -r $(PublishDir) -o Assets -l ../../Game/Layer1" />
   </Target>
 
 </Project>
