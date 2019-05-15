@@ -71,7 +71,7 @@ namespace PipelineProject {
             return fixPath(Path.Combine(contentPath, fileName));
         }
         private string createOutputPath(string buildPath, string fileName) {
-            return fixPath(Path.Combine(buildPath, Path.ChangeExtension(fileName, ".xnb")));
+            return fixPath(Path.Combine(buildPath, fileName + ".xnb"));
         }
         private void searchDirectory(string root, List<string> result) {
             try {
