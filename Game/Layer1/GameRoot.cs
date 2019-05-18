@@ -20,7 +20,7 @@ namespace GameProject {
             _s = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            _sampleImage = Content.Load<Texture2D>("Content/SampleImage");
+            _sampleImage = Content.Load<Texture2D>("SampleImage");
         }
 
         protected override void Update(GameTime gameTime) {
