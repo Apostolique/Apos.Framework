@@ -7,6 +7,7 @@ namespace GameProject {
         public GameRoot() {
             _graphics = new GraphicsDeviceManager(this);
             IsMouseVisible = true;
+            Content.RootDirectory = "Content";
         }
 
         protected override void Initialize() {
@@ -19,6 +20,7 @@ namespace GameProject {
             _s = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            _sampleImage = Content.Load<Texture2D>("Content/SampleImage");
         }
 
         protected override void Update(GameTime gameTime) {
@@ -34,11 +36,15 @@ namespace GameProject {
             GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
+            _s.Begin();
+            _s.Draw(_sampleImage, Vector2.Zero, Color.White);
+            _s.End();
 
             base.Draw(gameTime);
         }
 
         GraphicsDeviceManager _graphics;
         SpriteBatch _s;
+        Texture2D _sampleImage;
     }
 }

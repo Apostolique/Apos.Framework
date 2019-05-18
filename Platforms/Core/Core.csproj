@@ -22,4 +22,8 @@
           Command="dotnet run -p ../Pipeline -- -i ../../Game/Assets -r $(PublishDir) -o Assets -l ../../Game/Layer1" />
   </Target>
 
+  <ItemGroup>
+    <MonoGameContentReference Include="..\..\Game\Content\*.mgcb" />
+  </ItemGroup>
+
 </Project>
