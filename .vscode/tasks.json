@@ -32,12 +32,26 @@
             "problemMatcher": "$tsc"
         },
         {
-            "label": "publish",
+            "label": "publishCore",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Core/Core.csproj"
+                "${workspaceFolder}/Core/Core.csproj",
+                "-c",
+                "Release"
+            ],
+            "problemMatcher": "$tsc"
+        },
+        {
+            "label": "publishDirectX",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/DirectX/DirectX.csproj",
+                "-c",
+                "Release"
             ],
             "problemMatcher": "$tsc"
         },
