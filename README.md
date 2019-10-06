@@ -25,7 +25,7 @@ Contains game code that can be shared between multiple platforms. The game code 
 
 ### Layer1
 
-`Layer1` sits on top of `Layer0`. If a prebuild tool generates code, it will be put in `Layer1`. For example, a content pipeline could generate a C# class with links to the assets files. An IDE could then provide autocomplete and error checking when the links change.
+`Layer1` sits on top of `Layer0`. If a prebuild tool generates code, it will be put in `Layer1`. For example, a content pipeline could generate a C# class with links to the asset files. IDEs can then provide autocomplete and error checking when the links change.
 
 ## Platforms
 
