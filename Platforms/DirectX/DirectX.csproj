@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>GameName</AssemblyName>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Content.Builder" Version="3.7.0.4" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.7.1.189" />
+    <PackageReference Include="Apos.Content.Read" Version="0.1.1" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+
+  <Import Project="..\..\Game\Layer0\Layer0.projitems" Label="Shared" />
+  <Import Project="..\..\Game\Layer1\Layer1.projitems" Label="Shared" />
+
+  <Target Name="Build Content" BeforeTargets="BeforeBuild">
+    <Exec Condition="'$(Configuration)'=='debug'"
+          Command="dotnet run -p ../Pipeline -- -i ../../Game/Assets -r $(OutputPath) -o Assets -l ../../Game/Layer1" />
+    <Exec Condition="'$(Configuration)'=='release'"
+          Command="dotnet run -p ../Pipeline -- -i ../../Game/Assets -r $(PublishDir) -o Assets -l ../../Game/Layer1" />
+  </Target>
+
+  <ItemGroup>
+    <MonoGameContentReference Include="..\..\Game\Content\*.mgcb" />
+  </ItemGroup>
+
+</Project>
