@@ -39,7 +39,7 @@ namespace PipelineProject {
                         string right;
                         trimOutputPath.ParseDirectory(out left, out right);
                         links.Add(right, Path.GetFileName(trimFilePath).NormalizePath());
-                    } catch (Exception e) {
+                    } catch (Exception) {
                         Console.WriteLine($"\tFailed:   {trimFilePath}");
                     }
                 }
