@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "buildCore",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Platforms/Core/bin/Debug/netcoreapp2.0/GameName.dll",
+            "program": "${workspaceFolder}/Platforms/Core/bin/Debug/netcoreapp3.1/GameName.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Platforms/Core",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
@@ -19,11 +19,11 @@
         },
         {
             "name": "Run DirectX platform",
-            "type": "clr",
+            "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "buildDirectX",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Platforms/DirectX/bin/Debug/net472/GameName.exe",
+            "program": "${workspaceFolder}/Platforms/DirectX/bin/Debug/netcoreapp3.1/GameName.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Platforms/DirectX",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
@@ -36,7 +36,7 @@
             "request": "launch",
             "preLaunchTask": "buildPipeline",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Platforms/Pipeline/bin/Debug/netcoreapp2.0/Pipeline.dll",
+            "program": "${workspaceFolder}/Platforms/Pipeline/bin/Debug/netcoreapp3.1/Pipeline.dll",
             "args": ["-i", "Game/Assets", "-r", "Platforms/Pipeline/bin", "-o", "Assets", "-l", "Game/Layer1"],
             "cwd": "${workspaceFolder}",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
