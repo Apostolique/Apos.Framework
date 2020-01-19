@@ -10,7 +10,15 @@
     <PackageReference Include="Apos.Content.Compile" Version="0.1.1" />
   </ItemGroup>
 
-  <Import Project="..\..\Game\Pipeline\Pipeline.projitems" Label="Shared" />
-  <Import Project="..\..\Game\Layer0\Layer0.projitems" Label="Shared" />
+  <ItemGroup>
+    <Compile Include="..\..\Game\Pipeline\**\*.cs">
+      <Link>Pipeline\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Game\Layer0\**\*.cs">
+      <Link>Layer0\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
 
 </Project>

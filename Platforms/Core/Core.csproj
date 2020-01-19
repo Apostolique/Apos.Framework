@@ -17,8 +17,16 @@
     <PackageReference Include="Apos.Content.Read" Version="0.1.1" />
   </ItemGroup>
 
-  <Import Project="..\..\Game\Layer0\Layer0.projitems" Label="Shared" />
-  <Import Project="..\..\Game\Layer1\Layer1.projitems" Label="Shared" />
+  <ItemGroup>
+    <Compile Include="..\..\Game\Layer0\**\*.cs">
+      <Link>Layer0\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Game\Layer1\**\*.cs">
+      <Link>Layer1\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
 
   <Target Name="Build Content" BeforeTargets="BeforeBuild">
     <Exec Condition="'$(Configuration)'=='debug'"
