@@ -36,7 +36,9 @@
   </Target>
 
   <ItemGroup>
-    <MonoGameContentReference Include="..\..\Game\Content\*.mgcb" />
+    <MonoGameContentReference Include="..\..\Game\Content\**\*.mgcb">
+      <Link>Content\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </MonoGameContentReference>
   </ItemGroup>
 
 </Project>
