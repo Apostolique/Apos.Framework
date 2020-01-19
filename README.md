@@ -2,6 +2,10 @@
 
 Game architecture for MonoGame.
 
+# Goal
+
+Provide a base project structure that can be scaled to support multiple platforms.
+
 # Getting Started
 
 1. Create a folder for your game.
