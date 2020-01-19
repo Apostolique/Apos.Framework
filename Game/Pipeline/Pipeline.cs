@@ -12,9 +12,9 @@ namespace PipelineProject {
             _outputPath = fixPath(Path.Combine(outputRoot, outputFolder));
             _layer1 = fixPath(layer1);
 
-            Console.WriteLine("Input path: " + _inputPath);
-            Console.WriteLine("Output path: " + _outputPath);
-            Console.WriteLine("Output root: " + _outputRoot);
+            Console.WriteLine($"Input path: {_inputPath}");
+            Console.WriteLine($"Output path: {_outputPath}");
+            Console.WriteLine($"Output root: {_outputRoot}");
 
             List<string> result = new List<string>();
             searchDirectory(_inputPath, result);
@@ -34,13 +34,13 @@ namespace PipelineProject {
                     string trimOutputPath = trimPathRoot(_outputRoot, fileOutputPath);
                     try {
                         compilerPreset[Path.GetExtension(f)].Build(fileInputPath, fileOutputPath);
-                        Console.WriteLine("\tCompiled: " + trimFilePath + " to " + fileOutputPath);
+                        Console.WriteLine($"\tCompiled: {trimFilePath} to {fileOutputPath}");
                         string left;
                         string right;
                         trimOutputPath.ParseDirectory(out left, out right);
                         links.Add(right, Path.GetFileName(trimFilePath).NormalizePath());
                     } catch (Exception e) {
-                        Console.WriteLine("\tFailed:   " + trimFilePath);
+                        Console.WriteLine($"\tFailed:   {trimFilePath}");
                     }
                 }
                 generateClass(links, Path.Combine(_layer1, "AssetLinks.cs"));
@@ -71,7 +71,7 @@ namespace PipelineProject {
             return fixPath(Path.Combine(contentPath, fileName));
         }
         private string createOutputPath(string buildPath, string fileName) {
-            return fixPath(Path.Combine(buildPath, fileName + ".xnb"));
+            return fixPath(Path.Combine(buildPath, $"{fileName}.xnb"));
         }
         private void searchDirectory(string root, List<string> result) {
             try {
@@ -100,7 +100,7 @@ namespace PipelineProject {
         private void generateClass(RecurseDirectory links, string outputFile) {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("namespace GameProject {");
-            sb.AppendLine("    public static class " + Path.GetFileNameWithoutExtension(outputFile) + " {");
+            sb.AppendLine($"    public static class {Path.GetFileNameWithoutExtension(outputFile)}" + " {");
             links.GenerateClass(sb, "        ", "Assets/");
             sb.AppendLine("    }");
             sb.AppendLine("}");
@@ -137,15 +137,15 @@ namespace PipelineProject {
             }
             public void GenerateClass(StringBuilder sb, string indent, string current) {
                 foreach (Tuple<string, string> f in Files) {
-                    sb.AppendLine(indent + "public static string " + f.Item1 + " = \"" + current + f.Item2 + "\";");
+                    sb.AppendLine($"{indent}public static string {f.Item1} = \"{current}{f.Item2}\";");
                 }
                 if (Files.Count > 0 && Children.Count > 0) {
                     sb.AppendLine();
                 }
                 foreach (KeyValuePair<string, RecurseDirectory> dir in Children) {
-                    sb.AppendLine(indent + "public static class " + dir.Key + " {");
-                    dir.Value.GenerateClass(sb, indent + "    ", current + dir.Key + "/");
-                    sb.AppendLine(indent + "}");
+                    sb.AppendLine($"{indent}public static class {dir.Key}" + " {");
+                    dir.Value.GenerateClass(sb, $"{indent}    ", $"{current}{dir.Key}/");
+                    sb.AppendLine($"{indent}" + "}");
                 }
             }
         }
