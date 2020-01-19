@@ -21,6 +21,7 @@
       <Link>Layer0\%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
+
   <ItemGroup>
     <Compile Include="..\..\Game\Layer1\**\*.cs">
       <Link>Layer1\%(RecursiveDir)%(Filename)%(Extension)</Link>
