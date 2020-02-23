@@ -24,12 +24,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="**\*" Exclude="**\bin\**;**\obj\**;.git\**;.github\**;.gitignore;Apos.Framework.csproj;**\Images\**" />
-    <Compile Remove="**\*" />
+    <Content Include="../**/*" Exclude="**/bin/**;**/obj/**;../.git/**;../.github/**;../.gitignore;**/Images/**;../Template/**" PackagePath="content" />
+    <Content Include=".template.config/template.json" Pack="true" />
+    <Compile Remove="**/*" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Images/Icon.png" Pack="true" PackagePath="" />
+    <None Include="../Images/Icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>
