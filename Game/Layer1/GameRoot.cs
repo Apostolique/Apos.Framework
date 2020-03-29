@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Apos.Input;
 
 namespace GameProject {
     public class GameRoot : Game {
@@ -20,11 +21,10 @@ namespace GameProject {
             _s = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            _sampleImage = Content.Load<Texture2D>("SampleImage");
         }
 
         protected override void Update(GameTime gameTime) {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (_quit.Pressed())
                 Exit();
 
             // TODO: Add your update logic here
@@ -36,15 +36,17 @@ namespace GameProject {
             GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
-            _s.Begin();
-            _s.Draw(_sampleImage, Vector2.Zero, Color.White);
-            _s.End();
 
             base.Draw(gameTime);
         }
 
         GraphicsDeviceManager _graphics;
         SpriteBatch _s;
-        Texture2D _sampleImage;
+
+        ConditionComposite _quit =
+            new ConditionComposite(
+                new ConditionSet(new ConditionKeyboard(Keys.Escape)),
+                new ConditionSet(new ConditionGamePad(GamePadButton.Back, 0))
+            );
     }
 }
