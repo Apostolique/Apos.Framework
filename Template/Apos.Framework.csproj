@@ -25,7 +25,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="../**/*" Exclude="**/bin/**;**/obj/**;../.git/**;../.github/**;../.gitignore;**/Images/**;../Template/**" PackagePath="content" />
+    <Content Include="../Source/**/*" Exclude="**/bin/**;**/obj/**;" PackagePath="content" />
     <Content Include=".template.config/template.json" Pack="true" />
     <Compile Remove="**/*" />
   </ItemGroup>
