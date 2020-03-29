@@ -4,7 +4,7 @@
     <PackageType>Template</PackageType>
     <Title>Apos.Framework</Title>
     <Description>Game architecture for MonoGame.</Description>
-    <PackageVersion>1.3.0</PackageVersion>
+    <PackageVersion>1.4.0</PackageVersion>
     <PackageId>Apos.Framework.CSharp</PackageId>
     <Authors>Jean-David Moisan</Authors>
     <Company>Vyne Enterprise Inc.</Company>
