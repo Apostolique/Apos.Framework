@@ -21,14 +21,18 @@ namespace GameProject {
             _s = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            InputHelper.Setup(this);
         }
 
         protected override void Update(GameTime gameTime) {
+            InputHelper.UpdateSetup();
+
             if (_quit.Pressed())
                 Exit();
 
             // TODO: Add your update logic here
 
+            InputHelper.UpdateCleanup();
             base.Update(gameTime);
         }
 
