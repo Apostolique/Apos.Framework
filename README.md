@@ -11,6 +11,9 @@ Provide a base project structure that can be scaled to support multiple platform
 1. Create a folder for your game.
 2. Open your favorite terminal in that folder and run the following commands:
 ```
+dotnet tool install --global dotnet-mgcb-editor --version 3.8.0.1375-develop
+mgcb-editor --register
+
 dotnet new --install Apos.Framework.CSharp
 dotnet new Apos.Framework -o MyGame
 ```
