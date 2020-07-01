@@ -16,7 +16,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-    - name: Pack with dotnet
-      run: dotnet pack Template --output nuget-packages --configuration Release
+    - name: Pack full with dotnet
+      run: dotnet pack Templates/Full --output nuget-packages --configuration Release
+    - name: Pack simple with dotnet
+      run: dotnet pack Templates/Simple --output nuget-packages --configuration Release
     - name: Push with dotnet
-      run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NuGetAPIKey }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NuGetAPIKey }} --source https://api.nuget.org/v3/index.json --skip-duplicate

@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <Title>Apos.Framework</Title>
+    <Title>Apos.Framework.Simple</Title>
     <Description>Game architecture for MonoGame.</Description>
-    <PackageVersion>1.5.1</PackageVersion>
-    <PackageId>Apos.Framework.CSharp</PackageId>
+    <PackageVersion>1.6.0</PackageVersion>
+    <PackageId>Apos.Framework.Simple.CSharp</PackageId>
     <Authors>Jean-David Moisan</Authors>
     <Company>Vyne Enterprise Inc.</Company>
     <Copyright>Copyright 2020</Copyright>
@@ -22,16 +22,17 @@
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="../Source/**/*" Exclude="**/bin/**;**/obj/**;" PackagePath="content" />
+    <Content Include="../../Source/Simple/**/*" Exclude="**/bin/**;**/obj/**;" PackagePath="content" />
     <Content Include=".template.config/template.json" Pack="true" />
     <Compile Remove="**/*" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="../Images/Icon.png" Pack="true" PackagePath="" />
+    <None Include="../../Images/Icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>

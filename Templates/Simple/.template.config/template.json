@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Jean-David Moisan",
+    "classifications": [ "Apos", "MonoGame" ],
+    "identity": "Apos.Framework.Simple.CSharp",
+    "name": "Apos.Framework.Simple",
+    "shortName": "aposframeworksimple",
+    "description": "Game architecture for MonoGame.",
+    "sourceName": "GameName",
+    "preferNameDirectory": true
+}
