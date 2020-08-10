@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1375-develop" />
-    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.0.1375-develop" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.0.1641" />
     <PackageReference Include="Apos.Content.Read" Version="0.1.1" />
     <PackageReference Include="Apos.Input" Version="1.0.0" />
   </ItemGroup>
