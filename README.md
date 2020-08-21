@@ -21,7 +21,7 @@ dotnet new Apos.Framework.Simple -o MyGame
 ```
 3. To get the graphical MonoGame Pipeline Builder Editor:
 ```
-dotnet tool install --global dotnet-mgcb-editor --version 3.8.0.1375-develop
+dotnet tool install --global dotnet-mgcb-editor
 mgcb-editor --register
 ```
 
