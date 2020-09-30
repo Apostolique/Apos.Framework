@@ -43,6 +43,6 @@ Contains game code that can be shared between multiple platforms. The game code 
 
 ## Platforms
 
-This framework comes with two target platforms out of the box: Core and DirectX. More target platforms can be added as needed.
+This framework comes with two target platforms out of the box: DesktopGL and WindowsDX. More target platforms can be added as needed.
 
 Along with the platforms, there's a standalone custom Pipeline project. Running this builds the assets from `Game/Assets/`.
