@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <MonoGameContentReference Include="..\..\Game\Content\**\*.mgcb">
+    <MonoGameContentReference Include="..\..\Content\**\*.mgcb">
       <Link>Content\%(RecursiveDir)%(Filename)%(Extension)</Link>
     </MonoGameContentReference>
   </ItemGroup>
