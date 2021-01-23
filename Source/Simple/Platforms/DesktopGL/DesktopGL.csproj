@@ -14,18 +14,18 @@
   <ItemGroup>
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
-    <PackageReference Include="Apos.Input" Version="1.0.0" />
+    <PackageReference Include="Apos.Input" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\Game\**\*.cs">
+    <Compile Include="../../Game/**/*.cs">
       <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <MonoGameContentReference Include="..\..\Content\**\*.mgcb">
-      <Link>Content\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    <MonoGameContentReference Include="../../Content/**/*.mgcb">
+      <Link>Content/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </MonoGameContentReference>
   </ItemGroup>
 
