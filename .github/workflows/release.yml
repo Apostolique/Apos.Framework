@@ -16,11 +16,15 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
+    - name: Get version from tag
+      run: |
+        TAGVERSION=$(git describe --tags --abbrev=0)
+        echo "TAGVERSION=${TAGVERSION:1}" >> $GITHUB_ENV
     - name: Pack full with dotnet
-      run: dotnet pack Templates/Full --output nuget-packages-full --configuration Release
+      run: dotnet pack Templates/Full --output nuget-packages-full --configuration Release -p:PackageVersion=${{ env.TAGVERSION }}
     - name: Pack simple with dotnet
-      run: dotnet pack Templates/Simple --output nuget-packages-simple --configuration Release
+      run: dotnet pack Templates/Simple --output nuget-packages-simple --configuration Release -p:PackageVersion=${{ env.TAGVERSION }}
     - name: Push full with dotnet
-      run: dotnet nuget push nuget-packages-full/*.nupkg --api-key ${{ secrets.NuGetAPIKey }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+      run: dotnet nuget push nuget-packages-full/*.nupkg --api-key ${{ secrets.NUGETAPIKEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
     - name: Push simple with dotnet
-      run: dotnet nuget push nuget-packages-simple/*.nupkg --api-key ${{ secrets.NuGetAPIKey }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+      run: dotnet nuget push nuget-packages-simple/*.nupkg --api-key ${{ secrets.NUGETAPIKEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
