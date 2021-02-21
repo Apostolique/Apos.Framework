@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>GameName</AssemblyName>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <PublishTrimmed>true</PublishTrimmed>
     <PublishReadyToRun>false</PublishReadyToRun>
