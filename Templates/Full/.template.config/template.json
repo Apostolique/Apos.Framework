@@ -7,5 +7,9 @@
     "shortName": "aposframework",
     "description": "Game architecture for MonoGame.",
     "sourceName": "GameName",
+    "tags": {
+        "language": "C#",
+        "type": "item"
+    },
     "preferNameDirectory": true
 }
