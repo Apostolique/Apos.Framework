@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Jean-David Moisan",
+    "classifications": [ "Apos", "MonoGame", "Library" ],
+    "identity": "Apos.Framework.Library.CSharp",
+    "name": "Apos.Framework.Library",
+    "shortName": "aposframeworklibrary",
+    "description": "Template to make libraries for MonoGame.",
+    "sourceName": "LIBRARY_NAME",
+    "tags": {
+        "language": "C#",
+        "type": "item"
+    },
+    "preferNameDirectory": true,
+    "symbols": {
+        "description": {
+            "type": "parameter",
+            "replaces": "YOUR_DESCRIPTION",
+            "description": "Your project's description.",
+            "isRequired": true
+        },
+        "author": {
+            "type": "parameter",
+            "replaces": "YOUR_NAME",
+            "description": "Your name",
+            "isRequired": true
+        },
+        "repo": {
+            "type": "parameter",
+            "replaces": "YOUR_REPO",
+            "description": "The URL to your repository on GitHub.",
+            "isRequired": true
+        },
+        "branch": {
+            "type": "parameter",
+            "replaces": "YOUR_MAIN_BRANCH",
+            "description": "The main branch for your project.",
+            "defaultValue": "main",
+            "isRequired": false
+        },
+        "year": {
+            "type": "parameter",
+            "replaces": "CURRENT_YEAR",
+            "description": "The current year.",
+            "defaultValue": "2021",
+            "isRequired": false
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <Title>Apos.Framework.Library</Title>
+    <Description>Template to make libraries for MonoGame.</Description>
+    <PackageId>Apos.Framework.Library.CSharp</PackageId>
+    <Authors>Jean-David Moisan</Authors>
+    <Company>Vyne Enterprise Inc.</Company>
+    <Copyright>Copyright 2021</Copyright>
+    <PackageTags>apos;framework</PackageTags>
+    <PackageIcon>Icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/Apostolique/Apos.Framework</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Apostolique/Apos.Framework</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="../../Source/Library/**/*" Exclude="**/bin/**;**/obj/**;" PackagePath="content" />
+    <Content Include=".template.config/template.json" Pack="true" />
+    <Compile Remove="**/*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../Images/Icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+</Project>
