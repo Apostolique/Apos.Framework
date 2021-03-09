@@ -1,10 +1,10 @@
 # Apos.Framework
 
-Game architecture for MonoGame.
+Templates with my default MonoGame setups.
 
 ## Goal
 
-Provide a base project structure that can be scaled to support multiple platforms.
+Provide a base project structure that can be scaled.
 
 ## Builds
 
@@ -17,6 +17,12 @@ Apos.Framework
 Apos.Framework.Simple
 
 [![NuGet](https://img.shields.io/nuget/v/Apos.Framework.Simple.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Simple.CSharp/) [![NuGet](https://img.shields.io/nuget/dt/Apos.Framework.Simple.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Simple.CSharp/)
+
+---
+
+Apos.Framework.Library
+
+[![NuGet](https://img.shields.io/nuget/v/Apos.Framework.Library.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Library.CSharp/) [![NuGet](https://img.shields.io/nuget/dt/Apos.Framework.Library.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Library.CSharp/)
 
 ## Getting Started
 
@@ -35,6 +41,13 @@ dotnet new Apos.Framework.Simple -o MyGame
 ```
 dotnet tool install --global dotnet-mgcb-editor
 mgcb-editor --register
+```
+
+Template for doing open source libraries. Fill in your own values:
+
+```
+dotnet new --install Apos.Framework.Library.CSharp
+dotnet new Apos.Framework.Library -o Apos.Camera --repo https://github.com/Apostolique/Apos.Camera --branch master --description Camera library for MonoGame. --author "Jean-David Moisan"
 ```
 
 ## Structure
