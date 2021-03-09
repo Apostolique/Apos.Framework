@@ -18,6 +18,8 @@ jobs:
             path: Templates/Full
           - template: simple
             path: Templates/Simple
+          - template: library
+            path: Templates/Library
 
     steps:
     - uses: actions/checkout@v2
