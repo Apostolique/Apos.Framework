@@ -20,6 +20,7 @@ jobs:
             path: Templates/Simple
 
     steps:
+    - uses: actions/checkout@v2
     - name: Get project from tag
       run: |
         PROJECTNAME=$(git describe --tags --abbrev=0)
@@ -29,7 +30,6 @@ jobs:
         TAGVERSION=$(git describe --tags --abbrev=0)
         TAGVERSION=${TAGVERSION#*/}
         echo "TAGVERSION=${TAGVERSION:1}" >> $GITHUB_ENV
-    - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
