@@ -32,11 +32,21 @@
     </Compile>
   </ItemGroup>
 
-  <Target Name="Build Content" BeforeTargets="BeforeBuild">
-    <Exec Condition="'$(Configuration)'=='debug'"
-          Command="dotnet run -p ../Pipeline -- -i ../../Game/Assets -r $(OutputPath) -o Assets -l ../../Game/Layer1" />
-    <Exec Condition="'$(Configuration)'=='release'"
-          Command="dotnet run -p ../Pipeline -- -i ../../Game/Assets -r $(PublishDir) -o Assets -l ../../Game/Layer1" />
+  <Target Name="BuildAssets" BeforeTargets="BeforeBuild">
+    <Exec Command="dotnet run -p ../Pipeline -- -i ../../Game/Assets -r $(OutDir) -o Assets -l ../../Game/Layer1" />
+  </Target>
+
+  <Target Name="PublishAssets" AfterTargets="ComputeFilesToPublish">
+    <ItemGroup>
+      <AssetsFiles Include="$(OutDir)Assets\**" />
+    </ItemGroup>
+    <Copy
+      SourceFiles="@(AssetsFiles)"
+      DestinationFolder="$(PublishDir)Assets\%(RecursiveDir)"
+      SkipUnchangedFiles="true"
+      OverwriteReadOnlyFiles="true"
+      Retries="3"
+      RetryDelayMilliseconds="300" />
   </Target>
 
   <ItemGroup>
