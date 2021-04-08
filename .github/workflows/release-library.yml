@@ -1,0 +1,28 @@
+name: Release library to NuGet
+
+on:
+  push:
+    tags:
+    - 'library/v*'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Get version from tag
+      run: |
+        TAGVERSION=$(git describe --tags --abbrev=0)
+        TAGVERSION=${TAGVERSION#*/}
+        echo "TAGVERSION=${TAGVERSION:1}" >> $GITHUB_ENV
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Pack library with dotnet
+      run: dotnet pack Templates/Library --output nuget-packages-library --configuration Release -p:PackageVersion=${{ env.TAGVERSION }}
+    - name: Push library with dotnet
+      run: dotnet nuget push nuget-packages-library/*.nupkg --api-key ${{ secrets.NUGETAPIKEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
