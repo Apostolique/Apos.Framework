@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>LIBRARY_NAME</PackageId>
-    <Title>LIBRARY_NAME</Title>
     <Description>YOUR_DESCRIPTION</Description>
     <Authors>YOUR_NAME</Authors>
     <Copyright>Copyright CURRENT_YEAR</Copyright>
