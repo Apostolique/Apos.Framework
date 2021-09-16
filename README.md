@@ -47,7 +47,7 @@ Template for doing open source libraries. Fill in your own values:
 
 ```
 dotnet new --install Apos.Framework.Library.CSharp
-dotnet new Apos.Framework.Library -o Apos.Camera --repo https://github.com/Apostolique/Apos.Camera --branch main --description "Camera library for MonoGame." --author "Jean-David Moisan"
+dotnet new Apos.Framework.Library -o Apos.Camera --repo https://github.com/Apostolique/Apos.Camera --branch main --description "Camera library for MonoGame." --param:author "Jean-David Moisan"
 ```
 
 ## Structure
