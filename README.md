@@ -29,12 +29,12 @@ Apos.Framework.Library
 1. Create a folder for your game.
 2. Open your favorite terminal in that folder and run the following commands:
 ```
-dotnet new --install Apos.Framework.CSharp
+dotnet new --install aposframework
 dotnet new Apos.Framework -o MyGame
 ```
 I also provide simplified templates without my custom content pipeline:
 ```
-dotnet new --install Apos.Framework.Simple.CSharp
+dotnet new --install aposframeworksimple
 dotnet new Apos.Framework.Simple -o MyGame
 ```
 3. To get the graphical MonoGame Pipeline Builder Editor:
@@ -46,7 +46,7 @@ mgcb-editor --register
 Template for doing open source libraries. Fill in your own values:
 
 ```
-dotnet new --install Apos.Framework.Library.CSharp
+dotnet new --install aposframeworklibrary
 dotnet new Apos.Framework.Library -o Apos.Camera --repo https://github.com/Apostolique/Apos.Camera --branch main --description "Camera library for MonoGame." --param:author "Jean-David Moisan"
 ```
 
