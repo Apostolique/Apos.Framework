@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.4.3" />
-    <PackageReference Include="Apos.Content.Compile" Version="0.1.1" />
+    <PackageReference Include="Apos.Content.Compile" Version="0.1.2" />
   </ItemGroup>
 
   <ItemGroup>

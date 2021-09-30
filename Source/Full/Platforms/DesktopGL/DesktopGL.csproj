@@ -16,8 +16,8 @@
   <ItemGroup>
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
-    <PackageReference Include="Apos.Content.Read" Version="0.1.1" />
-    <PackageReference Include="Apos.Input" Version="2.1.0" />
+    <PackageReference Include="Apos.Content.Read" Version="0.1.2" />
+    <PackageReference Include="Apos.Input" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <Target Name="BuildAssets" BeforeTargets="BeforeBuild">
-    <Exec Command="dotnet run -p ../Pipeline -- -i ../../Game/Assets -r $(OutDir) -o Assets -l ../../Game/Layer1" />
+    <Exec Command="dotnet run --project ../Pipeline -- -i ../../Game/Assets -r $(OutDir) -o Assets -l ../../Game/Layer1" />
   </Target>
 
   <Target Name="PublishAssets" AfterTargets="ComputeFilesToPublish">

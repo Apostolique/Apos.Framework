@@ -21,8 +21,8 @@ namespace PipelineProject {
 
             Target target = new Target(TargetPlatform.Windows, TargetGraphicsBackend.OpenGL);
 
-            Dictionary<string, ICompilerPreset> compilerPreset = new Dictionary<string, ICompilerPreset>();
-            compilerPreset.Add(".txt", new CompilerPreset<string, Settings<string>>(new CompileString(), new Settings<string>(target)));
+            Dictionary<string, IPresetCompiler> compilerPreset = new Dictionary<string, IPresetCompiler>();
+            compilerPreset.Add(".txt", new PresetCompiler<string, Settings<string>>(new StringCompiler(), new Settings<string>(target)));
 
             if (result.Count > 0) {
                 Console.WriteLine("Found content:");
@@ -150,11 +150,11 @@ namespace PipelineProject {
             }
         }
 
-        private interface ICompilerPreset {
+        private interface IPresetCompiler {
             void Build(string inputPath, string outputPath);
         }
-        private class CompilerPreset<T, K> : ICompilerPreset where K : Settings<T> {
-            public CompilerPreset(Compiler<T, K> compiler, K settings) {
+        private class PresetCompiler<T, K> : IPresetCompiler where K : Settings<T> {
+            public PresetCompiler(Compiler<T, K> compiler, K settings) {
                 Compiler = compiler;
                 Settings = settings;
             }
