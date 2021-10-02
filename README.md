@@ -6,42 +6,49 @@ Templates with my default MonoGame setups.
 
 Provide a base project structure that can be scaled.
 
-## Builds
+## Templates
 
-### Apos.Framework
+### [Apos.Framework](./Source/Full/)
 
 [![NuGet](https://img.shields.io/nuget/v/Apos.Framework.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.CSharp/) [![NuGet](https://img.shields.io/nuget/dt/Apos.Framework.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.CSharp/)
 
----
+Template for doing a game with MonoGame. Has a custom content pipeline as an alternative to the default MonoGame content pipeline. Comes with two platforms out of the box: DesktopGL and WindowsDX.
 
-### Apos.Framework.Simple
-
-[![NuGet](https://img.shields.io/nuget/v/Apos.Framework.Simple.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Simple.CSharp/) [![NuGet](https://img.shields.io/nuget/dt/Apos.Framework.Simple.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Simple.CSharp/)
-
----
-
-### Apos.Framework.Library
-
-[![NuGet](https://img.shields.io/nuget/v/Apos.Framework.Library.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Library.CSharp/) [![NuGet](https://img.shields.io/nuget/dt/Apos.Framework.Library.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Library.CSharp/)
-
-## Getting Started
-
-1. Create a folder for your game.
-2. Open your favorite terminal in that folder and run the following commands:
 ```
 dotnet new --install aposframework
 dotnet new aposframework -o MyGame
 ```
-I also provide simplified templates without my custom content pipeline:
-```
-dotnet new --install aposframeworksimple
-dotnet new aposframeworksimple -o MyGame
-```
-3. To get the graphical MonoGame Pipeline Builder Editor:
+
+To get the graphical MonoGame Pipeline Builder Editor:
 ```
 dotnet tool install --global dotnet-mgcb-editor
 mgcb-editor --register
 ```
+
+---
+
+### [Apos.Framework.Simple](./Source/Simple/)
+
+[![NuGet](https://img.shields.io/nuget/v/Apos.Framework.Simple.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Simple.CSharp/) [![NuGet](https://img.shields.io/nuget/dt/Apos.Framework.Simple.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Simple.CSharp/)
+
+Template for doing a game with MonoGame. Comes with two platforms out of the box: DesktopGL and WindowsDX.
+
+```
+dotnet new --install aposframeworksimple
+dotnet new aposframeworksimple -o MyGame
+```
+
+To get the graphical MonoGame Pipeline Builder Editor:
+```
+dotnet tool install --global dotnet-mgcb-editor
+mgcb-editor --register
+```
+
+---
+
+### [Apos.Framework.Library](./Source/Library/)
+
+[![NuGet](https://img.shields.io/nuget/v/Apos.Framework.Library.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Library.CSharp/) [![NuGet](https://img.shields.io/nuget/dt/Apos.Framework.Library.CSharp.svg)](https://www.nuget.org/packages/Apos.Framework.Library.CSharp/)
 
 Template for doing open source libraries. Fill in your own values:
 
