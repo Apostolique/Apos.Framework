@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6-windows</TargetFramework>
     <AssemblyName>GameName</AssemblyName>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <MonoGamePlatform>Windows</MonoGamePlatform>
-    <PublishTrimmed>true</PublishTrimmed>
+    <PublishTrimmed>false</PublishTrimmed>
     <PublishReadyToRun>false</PublishReadyToRun>
     <TieredCompilation>false</TieredCompilation>
     <UseWindowsForms>true</UseWindowsForms>
