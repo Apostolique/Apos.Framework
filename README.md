@@ -19,12 +19,6 @@ dotnet new --install Apos.Framework.CSharp
 dotnet new aposframework -o MyGame
 ```
 
-To get the graphical MonoGame Pipeline Builder Editor:
-```
-dotnet tool install --global dotnet-mgcb-editor
-mgcb-editor --register
-```
-
 ---
 
 ### [Apos.Framework.Simple](./Source/Simple/)
@@ -36,12 +30,6 @@ Template for doing a game with MonoGame. Comes with two platforms out of the box
 ```
 dotnet new --install Apos.Framework.Simple.CSharp
 dotnet new aposframeworksimple -o MyGame
-```
-
-To get the graphical MonoGame Pipeline Builder Editor:
-```
-dotnet tool install --global dotnet-mgcb-editor
-mgcb-editor --register
 ```
 
 ---
