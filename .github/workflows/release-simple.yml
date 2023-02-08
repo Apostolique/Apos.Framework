@@ -12,16 +12,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Get version from tag
       run: |
         TAGVERSION=$(git describe --tags --abbrev=0)
         TAGVERSION=${TAGVERSION#*/}
         echo "TAGVERSION=${TAGVERSION:1}" >> $GITHUB_ENV
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 3.1.101
+        dotnet-version: '6.0.x'
     - name: Pack simple with dotnet
       run: dotnet pack Templates/Simple --output nuget-packages-simple --configuration Release -p:PackageVersion=${{ env.TAGVERSION }}
     - name: Push simple with dotnet
