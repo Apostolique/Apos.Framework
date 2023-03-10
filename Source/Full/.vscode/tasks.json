@@ -9,7 +9,7 @@
                 "build",
                 "${workspaceFolder}/Platforms/DesktopGL/DesktopGL.csproj"
             ],
-            "problemMatcher": "$tsc"
+            "problemMatcher": "$msCompile"
         },
         {
             "label": "buildWindowsDX",
@@ -19,7 +19,7 @@
                 "build",
                 "${workspaceFolder}/Platforms/WindowsDX/WindowsDX.csproj"
             ],
-            "problemMatcher": "$tsc"
+            "problemMatcher": "$msCompile"
         },
         {
             "label": "buildPipeline",
@@ -29,7 +29,7 @@
                 "build",
                 "${workspaceFolder}/Platforms/Pipeline/Pipeline.csproj"
             ],
-            "problemMatcher": "$tsc"
+            "problemMatcher": "$msCompile"
         }
     ]
 }
