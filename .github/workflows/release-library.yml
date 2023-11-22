@@ -21,7 +21,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '8.0.x'
     - name: Pack library with dotnet
       run: dotnet pack Templates/Library --output nuget-packages-library --configuration Release -p:PackageVersion=${{ env.TAGVERSION }}
     - name: Push library with dotnet
