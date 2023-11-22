@@ -10,8 +10,9 @@ using System.Text.Json.Serialization.Metadata;
 namespace GameProject {
     public class GameRoot : Game {
         public GameRoot() {
-            _graphics = new GraphicsDeviceManager(this);
-            _graphics.GraphicsProfile = GraphicsProfile.HiDef;
+            _graphics = new GraphicsDeviceManager(this) {
+                GraphicsProfile = GraphicsProfile.HiDef
+            };
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
 
@@ -190,10 +191,5 @@ namespace GameProject {
                 new KeyboardCondition(Keys.Enter)
             );
         ICondition _toggleBorderless = new KeyboardCondition(Keys.F11);
-
-        private static JsonSerializerOptions _options = new JsonSerializerOptions {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            WriteIndented = true,
-        };
     }
 }

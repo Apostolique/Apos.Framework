@@ -12,7 +12,7 @@ namespace GameProject {
         public bool IsBorderless { get; set; } = false;
     }
 
-    [JsonSourceGenerationOptionsAttribute(
+    [JsonSourceGenerationOptions(
         PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
         WriteIndented = true)]
     [JsonSerializable(typeof(Settings))]
