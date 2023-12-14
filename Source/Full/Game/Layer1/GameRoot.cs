@@ -16,7 +16,7 @@ namespace GameProject {
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
 
-            _settings = EnsureJson<Settings>("Settings.json", SettingsContext.Default.Settings);
+            _settings = EnsureJson("Settings.json", SettingsContext.Default.Settings);
         }
 
         protected override void Initialize() {
@@ -48,7 +48,7 @@ namespace GameProject {
                 SaveWindow();
             }
 
-            SaveJson<Settings>("Settings.json", _settings, SettingsContext.Default.Settings);
+            SaveJson("Settings.json", _settings, SettingsContext.Default.Settings);
 
             base.UnloadContent();
         }
@@ -175,10 +175,10 @@ namespace GameProject {
             _graphics.ApplyChanges();
         }
 
-        GraphicsDeviceManager _graphics;
+        readonly GraphicsDeviceManager _graphics;
         SpriteBatch _s;
 
-        Settings _settings;
+        readonly Settings _settings;
 
         ICondition _quit =
             new AnyCondition(
