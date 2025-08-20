@@ -7,7 +7,7 @@
     <PackageId>Apos.Framework.Simple.CSharp</PackageId>
     <Authors>Jean-David Moisan</Authors>
     <Company>Vyne Enterprise Inc.</Company>
-    <Copyright>Copyright 2020</Copyright>
+    <Copyright>Copyright 2025</Copyright>
     <PackageTags>apos;framework</PackageTags>
     <PackageIcon>Icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/Apostolique/Apos.Framework</RepositoryUrl>
@@ -15,7 +15,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net9</TargetFramework>
 
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
