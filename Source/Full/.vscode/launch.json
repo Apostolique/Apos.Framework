@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "buildDesktopGL",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Platforms/DesktopGL/bin/Debug/net8/GameName.dll",
+            "program": "${workspaceFolder}/Platforms/DesktopGL/bin/Debug/net9/GameName.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Platforms/DesktopGL",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
@@ -23,7 +23,7 @@
             "request": "launch",
             "preLaunchTask": "buildWindowsDX",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Platforms/WindowsDX/bin/Debug/net8-windows/GameName.dll",
+            "program": "${workspaceFolder}/Platforms/WindowsDX/bin/Debug/net9-windows/GameName.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Platforms/WindowsDX",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
@@ -36,7 +36,7 @@
             "request": "launch",
             "preLaunchTask": "buildPipeline",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Platforms/Pipeline/bin/Debug/net8/Pipeline.dll",
+            "program": "${workspaceFolder}/Platforms/Pipeline/bin/Debug/net9/Pipeline.dll",
             "args": ["-i", "Game/Assets", "-r", "Platforms/Pipeline/bin", "-o", "Assets", "-l", "Game/Layer1"],
             "cwd": "${workspaceFolder}",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window

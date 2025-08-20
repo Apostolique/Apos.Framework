@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8-windows</TargetFramework>
+    <TargetFramework>net9-windows</TargetFramework>
     <AssemblyName>GameName</AssemblyName>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -14,8 +14,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.2.1105" />
-    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.2.1105" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.4" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.4" />
     <PackageReference Include="Apos.Content.Read" Version="0.1.2" />
     <PackageReference Include="Apos.Input" Version="2.4.2" />
   </ItemGroup>
