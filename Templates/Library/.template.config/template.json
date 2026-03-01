@@ -42,7 +42,7 @@
             "type": "parameter",
             "replaces": "CURRENT_YEAR",
             "description": "The current year.",
-            "defaultValue": "2021",
+            "defaultValue": "2026",
             "isRequired": false
         }
     }
