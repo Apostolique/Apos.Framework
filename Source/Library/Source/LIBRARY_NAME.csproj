@@ -12,6 +12,7 @@
 
     <RepositoryUrl>YOUR_REPO</RepositoryUrl>
     <PackageProjectUrl>YOUR_REPO</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
@@ -30,6 +31,7 @@
 
   <ItemGroup>
     <None Include="../Images/Icon.png" Pack="true" PackagePath="" />
+    <None Include="../README.md" Pack="true" PackagePath="" />
     <None Include="../LICENSE" Pack="true" PackagePath="" />
   </ItemGroup>
 
