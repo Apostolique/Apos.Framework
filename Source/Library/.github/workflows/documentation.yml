@@ -7,6 +7,7 @@ on:
     paths:
     - 'docs/**'
     - 'README.md'
+    - 'CHANGELOG.md'
     - '.github/workflows/documentation.yml'
   workflow_dispatch:
 
@@ -15,6 +16,7 @@ env:
   DESCRIPTION: YOUR_DESCRIPTION
   BASE: LIBRARY_NAME
   REPO: YOUR_REPO/tree/YOUR_MAIN_BRANCH/
+  URL: YOUR_URL
 
 jobs:
   build:
@@ -22,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Use Node.js
       uses: actions/setup-node@v4
       with:
@@ -31,7 +33,7 @@ jobs:
       run: npm install apos-docs -g
     - name: Use apos-docs
       run: |
-        apos-docs -t ${{ env.TITLE }} -d '${{ env.DESCRIPTION }}' -b ${{ env.BASE }} -r ${{ env.REPO }}
+        apos-docs -t ${{ env.TITLE }} -d '${{ env.DESCRIPTION }}' -b ${{ env.BASE }} -r ${{ env.REPO }} -u ${{ env.URL }}
         cd apos-docs
         npm i
         npm run build

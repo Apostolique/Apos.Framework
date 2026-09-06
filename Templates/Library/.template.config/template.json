@@ -31,6 +31,12 @@
             "description": "The URL to your repository on GitHub.",
             "isRequired": true
         },
+        "url": {
+            "type": "parameter",
+            "replaces": "YOUR_URL",
+            "description": "The GitHub Pages URL where your documentation gets published.",
+            "isRequired": true
+        },
         "branch": {
             "type": "parameter",
             "replaces": "YOUR_MAIN_BRANCH",
